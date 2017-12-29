@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -12,6 +13,9 @@ namespace BSUIREntrantsWebSite.Models
         public string FirstName { get; set; }
         public string HomeTown { get; set; }
         public int TotalScore { get; set; }
+        //[Required(ErrorMessage = "Please enter the date of your birth")]
+        //[DataType(DataType.Date, ErrorMessage = "Please enter a valid date")]
+        //[DisplayFormat(DataFormatString = "{0:dd.MM.yyyy}")]
         public DateTime BirthDate { get; set; }
     }
 }
