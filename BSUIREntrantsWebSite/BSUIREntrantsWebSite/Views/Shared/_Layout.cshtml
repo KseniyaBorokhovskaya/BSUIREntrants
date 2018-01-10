@@ -4,8 +4,20 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - BSUIR Entrants</title>
+
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+
+    @*<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/themes/default/style.min.css" />*@
+    <script src="~/Scripts/jquery-1.12.1.js"></script>
+    
+
+    @*<link href="~/Scripts/jquery-1.10.2.js" rel="stylesheet" />*@
+
+    @*<link href="~/Content/jsTree/docs.css" rel="stylesheet" />*@
+    @*<link href="~/Content/jsTree/themes/default/style.css" rel="stylesheet" />*@
+    @*<script src="~/Scripts/jsTree3/jstree.js"></script>*@
+
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -23,7 +35,8 @@
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Entrants", "Index", "Enrollee")</li>
+                    <li>@Html.ActionLink("Entrants", "Index", "NewEnrollee")</li>
+                    <li>@Html.ActionLink("University", "Index", "UniversityTree")</li>
                 </ul>
             </div>
         </div>
@@ -39,5 +52,6 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/jstree.min.js"></script>
 </body>
 </html>

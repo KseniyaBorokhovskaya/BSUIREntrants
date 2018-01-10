@@ -1,0 +1,39 @@
+﻿@{
+    ViewBag.Title = "Tree";
+}
+<html>
+<head>
+    @*<link rel="stylesheet" href="~/Content/jsTree/themes/default/style.min.css" />
+      <script src="~/Scripts/jquery-1.12.1.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/jstree.min.js"></script>*@   
+</head>
+<body>
+    <script>
+        $(function () {
+            console.log("eeeeeeee");
+            $('#container').jstree({
+                "plugins": ["search", "wholerow"],
+                'core': {
+                    'data': {
+                        'url': function (node) {
+                            console.log("I'm here");
+                            return node.id === '#' ? "/UniversityTree/GetRoot" : "/UniversityTree/GetChildren/" + node.id;
+                        },
+                        'data': function (node) {
+                            return { 'id': node.id };
+                        }
+                    }
+                }
+            });
+
+            $('#container').on('changed.jstree', function (e, data) {
+                console.log("=> selected node: " + data.node.id);
+            });
+        });
+    </script>
+
+    <div id="container"></div>
+</body>
+</html>
+
+
