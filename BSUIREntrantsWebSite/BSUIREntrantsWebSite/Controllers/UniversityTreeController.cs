@@ -35,10 +35,6 @@ namespace BSUIREntrantsWebSite.Controllers
         {
             var items = new List<UniversityNode>();
             items = treeDb.UniversityNodes.Where(uni => uni.parentId == "#").ToList();
-            //var node = new UniversityNode { id = "1", parentId = "#", text = "BSUIR", children = true };
-            //items.Add(node);
-            //items = db.UniversityNodes.Find
-
             return items;
         }
 
@@ -46,13 +42,6 @@ namespace BSUIREntrantsWebSite.Controllers
         {
             var items = new List<UniversityNode>();
             items = treeDb.UniversityNodes.Where(uni => uni.parentId == id).ToList();
-            //var node = new UniversityNode { id = "2", parentId = "1", text = "gbfgf", children = false };
-            //var node1 = new UniversityNode { id = "3", parentId = "1", text = "f1213", children = false };
-
-            //items.Add(node);
-            //items.Add(node1);
-            // set items in here
-
             return items;
         }
     }
