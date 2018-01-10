@@ -8,12 +8,12 @@ using System.Web;
 
 namespace BSUIREntrantsWebSite.Concrete
 {
-    public class UniversityContext : DbContext
+    public class UniversitiesTreeContext : DbContext
     {
-        public UniversityContext() : base("EntrantsDataBase")
+        public UniversitiesTreeContext() : base("UniversityTreeDataBase")
         {
         }
-        public DbSet<Enrollee> Entranst { get; set; }
+        public DbSet<UniversityNode> UniversityNodes { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

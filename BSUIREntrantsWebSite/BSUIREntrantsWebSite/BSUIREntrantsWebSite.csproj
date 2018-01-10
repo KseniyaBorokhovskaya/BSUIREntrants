@@ -148,18 +148,44 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Concrete\UniversitiesTreeContext.cs" />
     <Compile Include="Concrete\UniversityContext.cs" />
     <Compile Include="Controllers\EnrolleeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\jsTree3Controller.cs" />
+    <Compile Include="Controllers\NewEnrolleeController.cs" />
+    <Compile Include="Controllers\UniversityTreeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712261836277_InitialCreate.cs" />
+    <Compile Include="Migrations\201712261836277_InitialCreate.Designer.cs">
+      <DependentUpon>201712261836277_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801082041582_AddUniversity.cs" />
+    <Compile Include="Migrations\201801082041582_AddUniversity.Designer.cs">
+      <DependentUpon>201801082041582_AddUniversity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Enrollee.cs" />
+    <Compile Include="Models\jsTree3Node.cs" />
+    <Compile Include="Models\UniversityNode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\jsTree\docs.css" />
+    <Content Include="Content\jsTree\themes\default-dark\32px.png" />
+    <Content Include="Content\jsTree\themes\default-dark\40px.png" />
+    <Content Include="Content\jsTree\themes\default-dark\style.css" />
+    <Content Include="Content\jsTree\themes\default-dark\style.min.css" />
+    <Content Include="Content\jsTree\themes\default-dark\throbber.gif" />
+    <Content Include="Content\jsTree\themes\default\32px.png" />
+    <Content Include="Content\jsTree\themes\default\40px.png" />
+    <Content Include="Content\jsTree\themes\default\style.css" />
+    <Content Include="Content\jsTree\themes\default\style.min.css" />
+    <Content Include="Content\jsTree\themes\default\throbber.gif" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -169,17 +195,23 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="Scripts\jquery-1.10.2.js" />
-    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery-1.12.1.intellisense.js" />
+    <Content Include="Scripts\jquery-1.12.1.js" />
+    <Content Include="Scripts\jquery-1.12.1.min.js" />
+    <Content Include="Scripts\jquery-1.12.1.min.map" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\jsTree3\jstree.js" />
+    <Content Include="Scripts\jsTree3\jstree.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\treeview.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -201,9 +233,19 @@
     <Content Include="Views\Enrollee\Details.cshtml" />
     <Content Include="Views\Enrollee\Edit.cshtml" />
     <Content Include="Views\Enrollee\Index.cshtml" />
+    <Content Include="Views\NewEnrollee\Create.cshtml" />
+    <Content Include="Views\NewEnrollee\Delete.cshtml" />
+    <Content Include="Views\NewEnrollee\Details.cshtml" />
+    <Content Include="Views\NewEnrollee\Edit.cshtml" />
+    <Content Include="Views\NewEnrollee\Index.cshtml" />
+    <Content Include="Views\Shared\_jsTreeDemo.cshtml" />
+    <Content Include="Views\jsTree3\Demo.cshtml" />
+    <Content Include="Views\jsTree3\AJAXDemo.cshtml" />
+    <Content Include="Views\UniversityTree\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\NewFolder1\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -216,7 +258,14 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201712261836277_InitialCreate.resx">
+      <DependentUpon>201712261836277_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801082041582_AddUniversity.resx">
+      <DependentUpon>201801082041582_AddUniversity.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
