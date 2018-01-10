@@ -6,7 +6,6 @@
 
 <script>
     $(function () {
-        console.log("Google");
         $('#UniversityDropDown').find('option').remove();
         $.ajax({
             type: "POST",
@@ -19,9 +18,7 @@
                     $("#UniversityDropDown")
                         .append($('<option>', { value: item.id })
                         .text(item.text));
-                        //append('<option>' + item.text + '</option>');
                 });
-                //$("#UniviersityDropdown").val("");
             },
             error: errorFunc
         });
@@ -30,9 +27,6 @@
     function getFaculties(input) {
         $('#FacultyDropdown').find('option').remove();
         $('#SpecialityDropdown').find('option').remove();
-        //var university = JSON.parse(input);
-        console.log(input);
-        //var request = { 'id': university.UniversityID };
         $.ajax({
             type: "POST",
             url: "/NewEnrollee/GetFaculties",
@@ -40,14 +34,11 @@
             contentType: "application/json; charset=utf-8",
             dataType: "json",
             success: function (data) {
-                console.log(data);
                 $(data).each(function (index, item){
-                    console.log(item);
                     $("#FacultyDropdown")
                         .append($('<option>', { value: item.id })
                         .text(item.text));
                 });
-                //$("#FacultiesDropdown").val("");
             },
             error: errorFunc
         });
@@ -62,7 +53,6 @@
             dataType: "json",
             success: function (data) {
                 $(data).each(function (index, item) {
-                    console.log(item);
                     $("#SpecialityDropdown")
                         .append($('<option>', { value: item.id })
                             .text(item.text));
@@ -130,11 +120,8 @@
         <div class="form-group">
             @Html.LabelFor(model => model.University, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @*<select model="University" id="UniviersityDropdown" onmousedown="this.text = '';" onchange="getFaculties(this.value);" class="form-control"></select>*@
-                @Html.DropDownListFor(model => model.University, Enumerable.Empty<SelectListItem>(), "choose",
- new { @id = "UniversityDropDown", @class = "form-control", @onchange = "getFaculties(this.value)", @onmousedown = "this.text = ''" })
-                console.log(this.value)
-                @*@Html.EditorFor(model => model.University, new { htmlAttributes = new { @class = "form-control" } })*@
+                @Html.DropDownListFor(model => model.University, Enumerable.Empty<SelectListItem>(), "",
+ new { @id = "UniversityDropDown", @class = "form-control", @onchange = "getFaculties(this.value)"})
                 @Html.ValidationMessageFor(model => model.University, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -142,9 +129,8 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Faculty, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownListFor(model => model.University, Enumerable.Empty<SelectListItem>(), "choose",
- new { @id = "FacultyDropdown", @class = "form-control", @onchange = "getSpecialities(this.value)", @onmousedown = "this.text = ''" })
-                @*@Html.EditorFor(model => model.Faculty, new { htmlAttributes = new { @class = "form-control" } })*@
+                @Html.DropDownListFor(model => model.Faculty, Enumerable.Empty<SelectListItem>(), "",
+ new { @id = "FacultyDropdown", @class = "form-control", @onchange = "getSpecialities(this.value)"})
                 @Html.ValidationMessageFor(model => model.Faculty, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -152,9 +138,8 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Speciality, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownListFor(model => model.University, Enumerable.Empty<SelectListItem>(), "choose",
- new { @id = "SpecialityDropdown", @class = "form-control", @onmousedown = "this.text = ''" })
-                @*@Html.EditorFor(model => model.Speciality, new { htmlAttributes = new { @class = "form-control" } })*@
+                @Html.DropDownListFor(model => model.Speciality, Enumerable.Empty<SelectListItem>(), "",
+ new { @id = "SpecialityDropdown", @class = "form-control"})
                 @Html.ValidationMessageFor(model => model.Speciality, "", new { @class = "text-danger" })
             </div>
         </div>

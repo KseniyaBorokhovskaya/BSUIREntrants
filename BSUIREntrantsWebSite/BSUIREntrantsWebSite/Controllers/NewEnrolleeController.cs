@@ -119,23 +119,19 @@ namespace BSUIREntrantsWebSite.Controllers
         [HttpPost]
         public JsonResult GetUniversities()
         {      
-            List<UniversityNode> items = treeDb.UniversityNodes.Where(uni => uni.parentId == "#").ToList();
-            //var node = new UniversityNode { id = "1", parentId = "#", text = "BSUIR", children = true };
-            //items.Add(node);
+            List<UniversityNode> items = treeDb.UniversityNodes.Where(element => element.parentId == "#").ToList();
             return new JsonResult { Data = items, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
         }
         [HttpPost]
         public JsonResult GetFaculties(string id)
         {
-            List<UniversityNode> items = treeDb.UniversityNodes.Where(uni => uni.parentId == id).ToList();
-            //var node = new UniversityNode { id = "2", parentId = "1", text = "KSIS", children = true };
-            //items.Add(node);
+            List<UniversityNode> items = treeDb.UniversityNodes.Where(element => element.parentId == id).ToList();
             return new JsonResult { Data = items, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
         }
         [HttpPost]
         public JsonResult GetSpecialities(string id)
         {
-            List<UniversityNode> items = treeDb.UniversityNodes.Where(uni => uni.parentId == id).ToList();
+            List<UniversityNode> items = treeDb.UniversityNodes.Where(element => element.parentId == id).ToList();
             return new JsonResult { Data = items, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
         }
 

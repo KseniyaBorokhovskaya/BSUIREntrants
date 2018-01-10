@@ -8,15 +8,8 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
-    @*<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/themes/default/style.min.css" />*@
+    <link rel="stylesheet" href="~/Content/jsTree/themes/default/style.css" />
     <script src="~/Scripts/jquery-1.12.1.js"></script>
-    
-
-    @*<link href="~/Scripts/jquery-1.10.2.js" rel="stylesheet" />*@
-
-    @*<link href="~/Content/jsTree/docs.css" rel="stylesheet" />*@
-    @*<link href="~/Content/jsTree/themes/default/style.css" rel="stylesheet" />*@
-    @*<script src="~/Scripts/jsTree3/jstree.js"></script>*@
 
 </head>
 <body>
@@ -52,6 +45,7 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/jstree.min.js"></script>
+    <script src="~/Scripts/jsTree3/jstree.js"></script>
+
 </body>
 </html>
