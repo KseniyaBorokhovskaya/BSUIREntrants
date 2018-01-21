@@ -14,7 +14,6 @@ namespace BSUIREntrantsWebSite.Controllers
     public class NewEnrolleeController : Controller
     {
         private UniversityContext db = new UniversityContext();
-        private UniversitiesTreeContext treeDb = new UniversitiesTreeContext();
 
         // GET: NewEnrollee
         public ActionResult Index()
@@ -119,19 +118,19 @@ namespace BSUIREntrantsWebSite.Controllers
         [HttpPost]
         public JsonResult GetUniversities()
         {      
-            List<UniversityNode> items = treeDb.UniversityNodes.Where(element => element.parentId == "#").ToList();
+            List<UniversityNode> items = db.Nodes.Where(element => element.ParentId == "#").ToList();
             return new JsonResult { Data = items, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
         }
         [HttpPost]
         public JsonResult GetFaculties(string id)
         {
-            List<UniversityNode> items = treeDb.UniversityNodes.Where(element => element.parentId == id).ToList();
+            List<UniversityNode> items = db.Nodes.Where(element => element.ParentId == id).ToList();
             return new JsonResult { Data = items, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
         }
         [HttpPost]
         public JsonResult GetSpecialities(string id)
         {
-            List<UniversityNode> items = treeDb.UniversityNodes.Where(element => element.parentId == id).ToList();
+            List<UniversityNode> items = db.Nodes.Where(element => element.ParentId == id).ToList();
             return new JsonResult { Data = items, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
         }
 

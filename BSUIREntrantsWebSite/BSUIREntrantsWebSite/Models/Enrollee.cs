@@ -15,8 +15,8 @@ namespace BSUIREntrantsWebSite.Models
         public int TotalScore { get; set; }
         [DisplayFormat(DataFormatString = "{0:dd.MM.yyyy}")]
         public DateTime BirthDate { get; set; }
-        public string University { get; set; }
-        public string Faculty { get; set; }
-        public string Speciality { get; set; }
+
+        public string ApplyInfoId { get; set; } 
+        public UniversityNode ApplyInfo { get; set; }
     }
 }

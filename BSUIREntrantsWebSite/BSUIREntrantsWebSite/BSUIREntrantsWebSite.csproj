@@ -148,7 +148,6 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Concrete\UniversitiesTreeContext.cs" />
     <Compile Include="Concrete\UniversityContext.cs" />
     <Compile Include="Controllers\EnrolleeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -165,8 +164,17 @@
     <Compile Include="Migrations\201801082041582_AddUniversity.Designer.cs">
       <DependentUpon>201801082041582_AddUniversity.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201801201239261_NewStructure.cs" />
+    <Compile Include="Migrations\201801201239261_NewStructure.Designer.cs">
+      <DependentUpon>201801201239261_NewStructure.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801201812067_SomeFix.cs" />
+    <Compile Include="Migrations\201801201812067_SomeFix.Designer.cs">
+      <DependentUpon>201801201812067_SomeFix.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Enrollee.cs" />
+    <Compile Include="Models\UniversityData.cs" />
     <Compile Include="Models\UniversityNode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -258,6 +266,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201801082041582_AddUniversity.resx">
       <DependentUpon>201801082041582_AddUniversity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801201239261_NewStructure.resx">
+      <DependentUpon>201801201239261_NewStructure.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801201812067_SomeFix.resx">
+      <DependentUpon>201801201812067_SomeFix.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

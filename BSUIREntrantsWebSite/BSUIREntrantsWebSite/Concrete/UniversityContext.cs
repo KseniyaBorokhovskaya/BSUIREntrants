@@ -14,6 +14,8 @@ namespace BSUIREntrantsWebSite.Concrete
         {
         }
         public DbSet<Enrollee> Entranst { get; set; }
+        public DbSet<UniversityData> Data { get; set; }
+        public DbSet<UniversityNode> Nodes { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

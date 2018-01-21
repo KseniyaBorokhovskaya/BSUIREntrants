@@ -2,11 +2,11 @@
     ViewBag.Title = "Tree";
 }
 <html>
-    <body>
-        <script>
-         $(function () {
+<body>
+    <script>
+        $(function () {
             $('#treeView').jstree({
-                "plugins": ["search", "wholerow"],
+                "plugins": ["search", "wholerow", "checkbox"],
                 'core': {
                     'themes': { "icons": false },
                     'data': {
@@ -20,14 +20,47 @@
                 }
             });
 
-            $('#treeView').on('changed.jstree', function (e, data) {
-                console.log("=> selected node: " + data.node.id);
-            });
-         });
-        </script>
+            $('button').on('click', function () {
+                var ids = $("#treeView").jstree("get_bottom_checked", null, true);
+                if (ids.length != 0) {
+                    console.log(ids);
+                    $.ajax({
+                        type: "POST",
+                        url: "/UniversityTree/GetAmountOfStudents",
+                        data: JSON.stringify({ 'ids': ids }),
+                        contentType: "application/json; charset=utf-8",
+                        dataType: "json",
+                        success: function (data) {
+                            $("#textBox").val(data);
+                        },
+                        error: error
+                    });
+                } else {
+                    alert("Choose node, please.")
+                }
 
-        <div id="treeView"></div>
-    </body>
+            });
+        });
+        function error(data) {
+            alert('Error' + data.responseText);
+        }
+    </script>
+
+    <div id="treeView"></div>
+    <br />
+    <div class="form-group">
+        <lable class="control-label col-md-2">Amount of students: </lable>
+        <div class="col-md-10">
+            @Html.TextBox("textBox", null, new { htmlAttributes = new { @id = "textBox", @class = "form-control" } })
+        </div>
+    </div>
+    <br />
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <button name="button" class="btn btn-default">Find</button>
+        </div>
+    </div>
+</body>
 </html>
 
 
