@@ -10,7 +10,7 @@ namespace BSUIREntrantsWebSite.Controllers
 {
     public class UniversityTreeController : Controller
     {
-        static private UniversitiesTreeContext treeDb = new UniversitiesTreeContext();
+        static private UniversityContext treeDb = new UniversityContext();
         // GET: UniversityTree
         public ActionResult Index()
         {
@@ -19,30 +19,37 @@ namespace BSUIREntrantsWebSite.Controllers
 
         public JsonResult GetRoot()
         {
-            List<UniversityNode> items = GetTree();
+            var items = treeDb.Nodes.Where(el => el.ParentId == "#").Select(element => new
+            {
+                id = element.Id,
+                text = element.Data.Text + "(" + element.TypeAndDepth + ")",
+                children = element.Children
+            }).ToList();
 
             return new JsonResult { Data = items, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
         }
 
         public JsonResult GetChildren(string id)
         {
-            List<UniversityNode> items = GetTree(id);
+            var items = treeDb.Nodes.Where(el => el.ParentId == id).Select(element => new
+            {
+                id = element.Id,
+                text = element.Data.Text + "(" + element.TypeAndDepth + ")",
+                children = element.Children
+            }).ToList();
 
             return new JsonResult { Data = items, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
         }
 
-        static List<UniversityNode> GetTree()
+        [HttpPost]
+        public int GetAmountOfStudents(string[] ids)
         {
-            var items = new List<UniversityNode>();
-            items = treeDb.UniversityNodes.Where(uni => uni.parentId == "#").ToList();
-            return items;
-        }
-
-        static List<UniversityNode> GetTree(string id)
-        {
-            var items = new List<UniversityNode>();
-            items = treeDb.UniversityNodes.Where(uni => uni.parentId == id).ToList();
-            return items;
+            int amountOfStudent = 0;
+            foreach(string id in ids)
+            {
+                amountOfStudent += treeDb.Entranst.Where(enrolle => enrolle.ApplyInfoId == id).Count();
+            }
+            return amountOfStudent;
         }
     }
 }

@@ -118,29 +118,29 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.University, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.ApplyInfo.Data, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownListFor(model => model.University, Enumerable.Empty<SelectListItem>(), "",
+                @Html.DropDownListFor(model => model.ApplyInfo.Data, Enumerable.Empty<SelectListItem>(), "",
  new { @id = "UniversityDropDown", @class = "form-control", @onchange = "getFaculties(this.value)"})
-                @Html.ValidationMessageFor(model => model.University, "", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(model => model.ApplyInfo.Data, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Faculty, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.ApplyInfo.Data, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownListFor(model => model.Faculty, Enumerable.Empty<SelectListItem>(), "",
+                @Html.DropDownListFor(model => model.ApplyInfo.Data, Enumerable.Empty<SelectListItem>(), "",
  new { @id = "FacultyDropdown", @class = "form-control", @onchange = "getSpecialities(this.value)"})
-                @Html.ValidationMessageFor(model => model.Faculty, "", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(model => model.ApplyInfo.Data, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Speciality, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.ApplyInfo.Data, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownListFor(model => model.Speciality, Enumerable.Empty<SelectListItem>(), "",
+                @Html.DropDownListFor(model => model.ApplyInfo.Data, Enumerable.Empty<SelectListItem>(), "",
  new { @id = "SpecialityDropdown", @class = "form-control"})
-                @Html.ValidationMessageFor(model => model.Speciality, "", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(model => model.ApplyInfo.Data, "", new { @class = "text-danger" })
             </div>
         </div>
 
